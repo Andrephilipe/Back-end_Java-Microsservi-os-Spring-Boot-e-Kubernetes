@@ -6,6 +6,13 @@ import java.util.Date;
 import java.util.List;
 
 public class UserDTO {
+
+    private String nome;
+    private String cpf;
+    private String endereco;
+    private String email;
+    private String telefone;
+    private Date dataCadastro;
     public String getNome() {
         return nome;
     }
@@ -54,26 +61,6 @@ public class UserDTO {
         this.dataCadastro = dataCadastro;
     }
 
-    private String nome;
-    private String cpf;
-    private String endereco;
-    private String email;
-    private String telefone;
-    private Date dataCadastro;
 
-    public static List<UserDTO> usuarios = new ArrayList<UserDTO>();
-    @PostConstruct
-    public void initiateList() {
-        UserDTO userDTO = new UserDTO();
-        UserDTO.setNome("Eduardo");
-        UserDTO.setCpf("123");
-        UserDTO.setEndereco("Rua alguma coisa");
-        UserDTO.setEmail("123@gmail.com");
-        UserDTO.setTelefone("1234-99897");
-        UserDTO.setDataCadastro(new Date());
-
-        usuarios.add(userDTO);
-
-    }
 
 }
