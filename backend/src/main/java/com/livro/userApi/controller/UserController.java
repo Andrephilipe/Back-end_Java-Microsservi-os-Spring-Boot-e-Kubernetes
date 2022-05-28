@@ -1,6 +1,6 @@
-package com.livro.backend.controller;
+package com.livro.userApi.controller;
 
-import com.livro.backend.dto.UserDTO;
+import com.livro.userApi.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
