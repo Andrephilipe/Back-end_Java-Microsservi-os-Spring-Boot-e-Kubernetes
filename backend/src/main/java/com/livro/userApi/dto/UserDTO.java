@@ -1,9 +1,6 @@
-package com.livro.backend.dto;
+package com.livro.userApi.dto;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class UserDTO {
 
