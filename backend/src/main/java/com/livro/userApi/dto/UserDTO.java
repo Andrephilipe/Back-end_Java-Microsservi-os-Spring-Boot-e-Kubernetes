@@ -2,6 +2,8 @@ package com.livro.userApi.dto;
 
 import java.util.Date;
 
+import com.livro.userApi.model.User;
+
 public class UserDTO {
 
     private String nome;
@@ -51,13 +53,23 @@ public class UserDTO {
     }
 
     public java.sql.Date getDataCadastro() {
-        return dataCadastro;
+        return (java.sql.Date) dataCadastro;
     }
 
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
-
+    public static UserDTO convert(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setNome(user.getNome());
+        userDTO.setEndereco(user.getEndereco());
+        userDTO.setCpf(user.getCpf());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setTelefone(user.getTelefone());
+        userDTO.setDataCadastro(user.getDataCadastro());
+        
+        return userDTO;
+    }
 
 }
