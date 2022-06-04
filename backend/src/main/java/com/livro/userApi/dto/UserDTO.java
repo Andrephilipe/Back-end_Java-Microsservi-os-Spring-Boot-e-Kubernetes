@@ -50,7 +50,7 @@ public class UserDTO {
         this.telefone = telefone;
     }
 
-    public Date getDataCadastro() {
+    public java.sql.Date getDataCadastro() {
         return dataCadastro;
     }
 
