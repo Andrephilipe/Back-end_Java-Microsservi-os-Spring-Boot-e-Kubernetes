@@ -38,6 +38,7 @@ public class UserController {
     @DeleteMapping("/user/{id}")
     UserDTO delete(@PathVariable Long id) {
         return userService.delete(id);
+        
     }
 
     @GetMapping("/user/search")
