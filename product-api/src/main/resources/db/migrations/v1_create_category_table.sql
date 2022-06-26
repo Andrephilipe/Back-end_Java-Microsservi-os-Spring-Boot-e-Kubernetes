@@ -1,0 +1,6 @@
+create schema if not exists products;
+
+CREATE TABLE PRODUCTS.CATEGORY(
+    ID BIGSERIAL PRIMARY KEY,
+    NOME VARCHAR(100) NOT NULL
+);
