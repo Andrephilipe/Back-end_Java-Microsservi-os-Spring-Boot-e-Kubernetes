@@ -1,6 +1,5 @@
 package com.backend.productapi.model;
 
-import java.util.Locale.Category;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.backend.productapi.dto.ProductDTO;
+import com.backend.productapi.dto.CategoryDTO;
 
 @Entity(name="product")
 public class Product {
@@ -72,7 +74,16 @@ public class Product {
     }
 
     public static Product convert(ProductDTO productDTO){
-        
+        Product product = new Product();
+        product.setNome(productDTO.getNome());
+        product.setPreco(productDTO.getPreco());
+        product.setDescricao(productDTO.getDescricao());
+        product.setProductIdentifier(productDTO.getProductIdentifier());
+        if(productDTO.getCategoryDTO() != null){
+            product.setCategory(
+                Category.convert(productDTO.getCategoryDTO()));
+        }
+        return product;
     }
     
 }
