@@ -41,10 +41,10 @@ public class ProductDTO {
     public void setPreco(Float preco) {
         this.preco = preco;
     }
-    public CategoryDTO getCategory() {
+    public CategoryDTO getCategoryDTO() {
         return category;
     }
-    public void setCategory(CategoryDTO category) {
+    public void setCategoryDTO(CategoryDTO category) {
         this.category = category;
     }
 
