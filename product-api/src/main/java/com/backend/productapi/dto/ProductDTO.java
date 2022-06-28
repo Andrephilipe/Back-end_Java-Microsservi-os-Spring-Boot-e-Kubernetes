@@ -1,16 +1,27 @@
 package com.backend.productapi.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import com.backend.productapi.model.Product;
+
 public class ProductDTO {
 
-    private long id;
+    @NotBlank
+    private String productIdentifier;
+    @NotBlank 
     private String nome;
-    private Float preco;
+    @NotBlank
     private String descricao;
-    public long getId() {
-        return id;
+    @NotNull
+    private Float preco;
+    @NotNull
+    private CategoryDTO category; 
+
+    public String getProductIdentifier() {
+        return productIdentifier;
     }
-    public void setId(long id) {
-        this.id = id;
+    public void setProductIdentifier(String productIdentifier) {
+        this.productIdentifier = productIdentifier;
     }
     public String getNome() {
         return nome;
@@ -18,25 +29,36 @@ public class ProductDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public Float getPreco() {
-        return preco;
-    }
-    public void setPreco(Float preco) {
-        this.preco = preco;
-    }
     public String getDescricao() {
         return descricao;
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public String getProductIdentifier() {
-        return productIdentifier;
+    public Float getPreco() {
+        return preco;
     }
-    public void setProductIdentifier(String productIdentifier) {
-        this.productIdentifier = productIdentifier;
+    public void setPreco(Float preco) {
+        this.preco = preco;
     }
-    private String productIdentifier;
+    public CategoryDTO getCategory() {
+        return category;
+    }
+    public void setCategory(CategoryDTO category) {
+        this.category = category;
+    }
 
+    public static ProductDTO convert(Product product){
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setNome(product.getNome());
+        productDTO.setPreco(product.getPreco());
+        productDTO.setProductIdentifier(product.getProductIdentifier());
+        productDTO.setDescricao(product.getDescricao());
+        if(product.getCategory() != null)
+        {
+            productDTO.setCategoryDTO(CategoryDTO.convert(product.getCategory()));
+        }
+        return productDTO;
+    }
     
 }

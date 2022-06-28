@@ -1,15 +1,20 @@
 package com.backend.productapi.dto;
 
+import javax.validation.constraints.NotNull;
+import com.backend.productapi.model.Category;
+
 public class CategoryDTO {
 
-    private long id;
+    @NotNull
+    private Long id;
     private String nome;
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
-    }s
+    }
     public String getNome() {
         return nome;
     }
@@ -17,4 +22,11 @@ public class CategoryDTO {
         this.nome = nome;
     }
 
+    public static CategoryDTO convert(Category category) {
+        CategoryDTO categoryDTO = new CategoryDTO();
+        categoryDTO.setId(category.getId());
+        categoryDTO.setNome(category.getNome());
+        
+        return categoryDTO;
+    }
 }
