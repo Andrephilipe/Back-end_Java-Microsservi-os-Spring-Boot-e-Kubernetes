@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.postgresql.core.PGBindException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,7 +45,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/product/{id}")
-    ProductDTO delete(@PathVariable Long id) throws ProductNotFoundException
+    ProductDTO delete(@PathVariable Long id) throws PGBindException
     {
         return productService.delete(id);
     }
