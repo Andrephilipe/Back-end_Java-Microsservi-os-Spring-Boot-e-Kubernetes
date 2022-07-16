@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.File;
 import java.util.Arrays;
+import java.io.Serializable;
 
 @SpringBootApplication
 public class BackendApplication {
